@@ -3,8 +3,6 @@ import React from "react"
 const Content = (props) => {
 
    const Parts = () => {
-
-    console.log(props)
     
     return (
       <div>
