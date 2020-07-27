@@ -4,11 +4,13 @@ const Content = (props) => {
 
    const Parts = () => {
 
+    console.log(props.parts[0].name)
+    
     return (
       <div>
-        <p> {props.part1.name} </p>
-        <p> {props.part2.name} </p>
-        <p> {props.part3.name} </p>
+        <p>{props.parts[0].name}</p>
+        <p>{props.parts[1].name}</p>
+        <p>{props.parts[2].name}</p>
       </div>
     )
    }
