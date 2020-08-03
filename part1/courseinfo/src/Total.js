@@ -1,16 +1,20 @@
-// import React from "react"
+ import React from "react"
 
-// const Total = (props) => {
+ const Total = ({course}) => {
 
-//   const sum = (props.parts[0].exercises)+(props.parts[1].exercises)+(props.parts[2].exercises)
 
-//   return (
-//       <div>
-//         <p>Number of exercises: {sum}</p>
+  console.log(course.parts.length)
 
-//           <hr></hr>
-//       </div>
-//   )
-// }
+//  const sum = course.map(sumList => <p key={sumList.id}>{sumList.exercise}</p>)
+ 
 
-// export default Total
+   return (
+       <div>
+         <li>Number of exercises: {course.parts.length}</li>
+
+           <hr></hr>
+       </div>
+   )
+ }
+
+ export default Total
