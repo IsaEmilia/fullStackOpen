@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom'
 
 const Stats = (props) => {
 
-  const sum = props.good + props.bad
+  console.log(props)
+
+  const good = props.good
+  const bad = props.bad
+  const neutral = props.neutral
+  const sum = props.good + props.bad + props.neutral
+  const average = (props.good + props.neutral + props.bad)/3
+  const positive = (props.good / (props.good + props.neutral + props.bad)) * 100
 
   return (
     <div>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
       <p>All: {sum}</p>
+      <p>Average: {average}</p>
+      <p>Positive: {positive}</p> 
     </div>
   )
 }
@@ -32,13 +44,13 @@ const App = () => {
       <Button handleClick={() => setBad(bad +1)} text="Bad"/>
       <hr></hr>
       <h1>Stats</h1>
-      <p>Good: {good}</p>
+      <Stats  />
+      {/* <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      {/* <Stats /> */}
+      <p>Bad: {bad}</p> 
       <p>All: {good + neutral + bad}</p>
-      <p>Average: {(good / 3) + (bad / 3 + (neutral / 3)}</p>
-      <p>Positive: {(good * 100) / (neutral + bad) }%</p>
+      <p>Average: {(good + neutral + bad)/3}</p>
+      <p>Positive: {(good / (good + neutral + bad)) * 100}%</p>  */}
     </div>
   )
 }
