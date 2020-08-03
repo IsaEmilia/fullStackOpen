@@ -1,14 +1,12 @@
 import React from "react"
 
-const Content = (props) => {
+const Content = ({course}) => {
 
    const Parts = () => {
-    
+
     return (
       <div>
-        <p> {props.parts[0].name}</p>
-        <p> {props.parts[1].name}</p>
-        <p> {props.parts[2].name}</p>
+        {course.parts.map(contents => <li key={contents.id}>{contents.name}: {contents.exercises}</li>)}
       </div>
     )
    }
