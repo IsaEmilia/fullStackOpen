@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom'
 
 const Statistic = (props) => {
 
-  console.log(props)
-
   return(
     <div>
       <p>{props.text}{props.value}</p>
@@ -17,40 +15,35 @@ const Stats = (props) => {
   const bad = props.bad
   const neutral = props.neutral
   const sum = props.good + props.bad + props.neutral
-  const average = " fuck average"
+  const average = "fuck average"
   const positive = (props.good / (props.good + props.neutral + props.bad)) * 100
 
   if(!good && !neutral && !bad){
     return(
       <div>
-        <p>No feedback given</p>
+        <p>No feedback given :(</p>
       </div>
     )
   }
 
   return (
     <div>
-      <Statistic text="Good:" value={good}/>
-      <Statistic text="Neutral:" value={neutral}/>
-      <Statistic text="Bad:" value={bad}/>
-      <Statistic text="All:" value={sum}/>
-      <Statistic text="Positive:" value={positive}/>
-      <Statistic text="Average:" value={average}/>
-      {/* <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>All: {sum}</p>
-      <p>Positive: {positive}</p> 
-      <p>Average: {average}</p> */}
+      <Statistic text="Good: " value={good}/>
+      <Statistic text="Neutral: " value={neutral}/>
+      <Statistic text="Bad: " value={bad}/>
+      <Statistic text="All: " value={sum}/>
+      <Statistic text="Positive: " value={positive}/>
+      <Statistic text="Average: " value={average}/>
     </div>
   )
 }
 
-const App = () => {
+const App = (props) => {
   // save clicks of each button to own state
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const [selected, setSelected] = useState(0)
 
   const Button = (props) => (
     <button onClick={props.handleClick}>
@@ -58,6 +51,7 @@ const App = () => {
     </button>
   )
 
+  
   return (
     <div>
       <h1>Give feedback </h1>
@@ -67,10 +61,22 @@ const App = () => {
       <hr></hr>
       <h1>Stats</h1>
       <Stats good={good} neutral={neutral} bad={bad} />
+      <hr></hr>
+      <p>{props.anecdotes[selected]}</p>
+      <Button handleClick={() => setSelected(Math.floor(Math.random() * 6))} text="Next anecdote"/>
     </div>
   )
 }
 
-ReactDOM.render(<App />, 
+const anecdotes = [
+  'If it hurts, do it more often',
+  'Adding manpower to a late software project makes it later!',
+  'The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+  'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+  'Premature optimization is the root of all evil.',
+  'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
+]
+
+ReactDOM.render(<App anecdotes={anecdotes} />, 
   document.getElementById('root')
 )
