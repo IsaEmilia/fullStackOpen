@@ -1,16 +1,12 @@
  import React from "react"
 
- const Total = ({course}) => {
+ const Total = ({courses}) => {
 
-
-  console.log(course.parts.length)
-
-//  const sum = course.map(sumList => <p key={sumList.id}>{sumList.exercise}</p>)
- 
+  console.log("Total", courses)
 
    return (
        <div>
-         <li>Number of exercises: {course.parts.length}</li>
+         <li>Number of exercises: {courses.reduce((sum, part) => sum + part.exercises, 0)} </li>
 
            <hr></hr>
        </div>

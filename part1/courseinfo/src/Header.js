@@ -1,10 +1,12 @@
 import React from "react"
 
-const Header = (props) => {
+const Header = ({courses}) => {
+
+    console.log("Header", courses)
 
     return (
         <div>
-            <h1>{props.course.name}</h1>
+            <h1>{courses.name}</h1>
             <hr></hr>
         </div>
     )
