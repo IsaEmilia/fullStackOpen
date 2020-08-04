@@ -1,13 +1,12 @@
 import React from "react"
 
-const Header = ({courses}) => {
+const Header = ({course}) => {
 
-    console.log("Header", courses)
+    console.log("Header", course.name)
 
     return (
         <div>
-            <h1>{courses.name}</h1>
-            <hr></hr>
+            <h3>{course.name}</h3>
         </div>
     )
 }

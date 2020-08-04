@@ -3,15 +3,15 @@ import Content from "./Content"
 import Header from "./Header"
 import Total from "./Total"
 
-const Course = ({courses}) => {
+const Course = ({course}) => {
 
-    console.log("Course", courses)
+    console.log("Course", course)
 
     return( 
         <div>
-            <Header courses={courses}/>
-            <Content courses={courses}/>
-            <Total courses={courses}/>
+            <Header course={course}/>
+            <Content parts={course.parts}/>
+            <Total parts={course.parts}/>
         </div>
     )
 }
