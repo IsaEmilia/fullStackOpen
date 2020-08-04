@@ -2,11 +2,10 @@
 
  const Total = ({parts}) => {
 
-  console.log("Total", parts)
 
    return (
        <div>
-         <li>Total of {parts.reduce((sum, part) => sum + part.exercises, 0)} exercises </li>
+         <h4>Total of {parts.reduce((sum, part) => sum + part.exercises, 0)} exercises </h4>
 
            <hr></hr>
        </div>

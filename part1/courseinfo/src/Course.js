@@ -5,8 +5,6 @@ import Total from "./Total"
 
 const Course = ({course}) => {
 
-    console.log("Course", course)
-
     return( 
         <div>
             <Header course={course}/>

@@ -2,7 +2,6 @@ import React from "react"
 
 const Content = ({parts}) => {
 
-
    const Parts = () => {
 
     return (

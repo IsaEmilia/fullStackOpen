@@ -4,8 +4,6 @@ import Course from "./Course"
 
 const App = () => {
 
-  console.log("App")
-
   const courses = [
     {
       name: 'Half Stack application development',
@@ -45,6 +43,22 @@ const App = () => {
         {
           name: 'Middlewares',
           exercises: 7,
+          id: 2
+        }
+      ]
+    },
+    {
+      name: 'Poop',
+      id: 3,
+      parts: [
+        {
+          name: 'Poopin',
+          exercises: 6,
+          id: 1
+        },
+        {
+          name: 'Tootin',
+          exercises: 17,
           id: 2
         }
       ]
