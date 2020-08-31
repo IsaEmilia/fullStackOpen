@@ -34,20 +34,22 @@ const App = () => {
     }
 
     if (newName === "r") {
-      alert(`${newName} is already added`)
+      alert(`${newName} is already added to phonebook`)
       return(
         null
-      )
-    } if(newName === ""){
-      return(
-        null
-      )
-    }if(newNumber === ""){
+      ) 
+    }else if(newNumber === ""){
       alert('Phone number is missing')
       return(
         null
       )
-    }
+    } 
+    
+   if(newName === ""){
+    return(
+      null
+    )}
+
     setPersons(persons.concat(nameObject))
     setNewName("")
     setNewNumber("")
