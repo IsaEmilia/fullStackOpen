@@ -3,52 +3,58 @@ import ReactDOM from 'react-dom'
 
 const App = () => {
   const [ persons, setPersons ] = useState([
-    { content: 'Name Example', number: '123 456 789', id: 0 }
+    { name: 'Name Example', number: '123 456 789', id: 0 }
   ]) 
   const [ newName, setNewName ] = useState([''])
   const [ newNumber, setNewNumber] = useState([''])
 
 
+  const NewPerson = () => {
+    return(
+      <form onSubmit={addPerson}>
+        name:  <br></br>
+        <input value={newName} 
+               onChange={handleNameChange}/>
+        <br></br>
+        number:  <br></br>
+        <input value={newNumber} 
+               onChange={handleNumberChange}/>
+        <br></br>
+        <button type="submit">add</button>
+      </form>
+    )
+  }
+
   const NameList = () => {
+    const listOfNames = persons.map(name => 
+      <li key={name.id} >
+        {name.name} 
+        <br></br> 
+        {name.number}
+      </li> 
+    ) 
+    const nameArray = Object.values(listOfNames)
+    console.log(nameArray)
+
     return(
       <div>
       <ul>
-        {persons.map(name => 
-          <li key={name.id} >
-            {name.content} 
-            <br></br> 
-            {name.number}
-          </li> 
-        )} 
+        {nameArray}
       </ul> 
       </div>
     )
   } 
 
-  const addPerson = (event) => {
-    event.preventDefault()
-     const nameObject = {
-       content: newName,
-       number: newNumber,
-       id: persons.length + 1,
-    }
 
-    if (newName === "r") {
-      alert(`${newName} is already added to phonebook`)
-      return(
-        null
-      ) 
-    }else if(newNumber === ""){
-      alert('Phone number is missing')
-      return(
-        null
-      )
-    } 
-    
-   if(newName === ""){
-    return(
-      null
-    )}
+  const addPerson = (event) => {
+
+    event.preventDefault()
+
+    const nameObject = {
+      name: newName,
+      number: newNumber,
+      id: persons.length + 1,
+    }
 
     setPersons(persons.concat(nameObject))
     setNewName("")
@@ -64,29 +70,18 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
-  return (
-    <div>
-      <h2>Phonebook</h2>
 
-      <form onSubmit={addPerson}>
-        name:  <br></br>
-        <input value={newName} 
-               onChange={handleNameChange}/>
-        <br></br>
-        number:  <br></br>
-        <input value={newNumber} 
-               onChange={handleNumberChange}/>
-        <br></br>
-        <button type="submit">add</button>
-      </form>
-      
+  return (
+   <div>
+      <h2>Phonebook</h2>
+      <NewPerson />    
       <h2>Numbers</h2>
 
-  <div>
-    <NameList />
-  </div>
+     <div>
+       <NameList />
+     </div>
       
-    </div>
+    </div> 
   )
 }
 
